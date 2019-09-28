@@ -21,6 +21,8 @@
 *.app
 
 # CodeBlocks specific
+/tis2ovl/bin
+/tis2ovl/obj
 /tis2ovl/tis2ovl.cbp
 /tis2ovl/tis2ovl.depend
 /tis2ovl/tis2ovl.layout
