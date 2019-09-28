@@ -6,7 +6,7 @@
 #include "arrays.h"
 
 /// Print usage information.
-void printHelp();
+void printHelp(const char *name);
 
 /// Print version information.
 void printVersion();

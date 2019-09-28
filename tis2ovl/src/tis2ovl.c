@@ -39,16 +39,16 @@ FILE* parseTISFile(const char *, int *, int *);
 // Store full path of TIS file based on given search path list and TIS filename.
 bool findTISFile(array_t *, const char *, char *);
 
-void printHelp() {
-    printf("Usage: %s [OPTIONS]... WEDFILE...\n", TIS2OVL_NAME);
+void printHelp(const char *name) {
+    printf("Usage: %s [OPTIONS]... WEDFILE...\n", (name && *name) ? name : TIS2OVL_NAME);
     printf("Retrieve information from WEDFILE(s) to convert tileset (TIS) overlays between classic BG2 and Enhanced Edition games.\n\n");
     printf("Options:\n");
     printf("  -c            Convert TIS overlays from classic to Enhanced Edition mode.\n");
     printf("  -e            Convert TIS overlays from Enhanced Edition to classic mode.\n");
     printf("                (Note: Omit -c and -e to autodetect TIS overlay conversion mode.)\n");
-    printf("  -s path       Search path for TIS files. This option can be specified\n");
-    printf("                multiple times. Default: current directory\n");
-    printf("  -o out_path   Output directory for TIS files. Omit to update original files instead.\n");
+    printf("  -s path       Search path for TIS files. This option can be specified multiple times.\n");
+    printf("                Default: current directory\n");
+    printf("  -o out_path   Output directory for TIS files. Omit to update source TIS files instead.\n");
     printf("  -q            Enable quiet mode. Do not print any log messages to standard output.\n");
     printf("  -h            Print this help and exit.\n");
     printf("  -v            Print version information and exit.\n");

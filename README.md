@@ -17,9 +17,9 @@ Options:
   -c            Convert TIS overlays from classic to Enhanced Edition mode.
   -e            Convert TIS overlays from Enhanced Edition to classic mode.
                 (Note: Omit -c and -e to autodetect TIS overlay conversion mode.)
-  -s path       Search path for TIS files. This option can be specified
-                multiple times. Default: current directory
-  -o out_path   Output directory for TIS files. Omit to update original files instead.
+  -s path       Search path for TIS files. This option can be specified multiple times.
+                Default: current directory
+  -o out_path   Output directory for TIS files. Omit to update source TIS files instead.
   -q            Enable quiet mode. Do not print any log messages to standard output.
   -h            Print this help and exit.
   -v            Print version information and exit.

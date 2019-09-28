@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <unistd.h>
 #include "global.h"
+#include "version.h"
 #include "functions.h"
 #include "arrays.h"
 #include "tis2ovl.h"
@@ -15,7 +16,7 @@ int main(int argc, char *argv[])
     isFileIdentical("a", "b");
 
     if (argc < 2) {
-        printHelp();
+        printHelp(TIS2OVL_NAME);
         return EXIT_SUCCESS;
     }
 
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
             param_verbose = true;
             break;
         case 'h':
-            printHelp();
+            printHelp(TIS2OVL_NAME);
             return EXIT_SUCCESS;
         case 'v':
             printVersion();
