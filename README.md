@@ -43,21 +43,21 @@ tis2ovl -c -s tis_input -o tis_output AR1000.WED AR1001.WED
 
 ## Building from source
 
-Requirements:
+**Requirements:**
 - A toolchain that provides a GNU C compatible compiler at version 4.0 or later (e.g. MinGW on Windows)
 - CMake at version 3.1 or later (https://cmake.org/)
 - libimagequant (https://pngquant.org/lib/)
 
-By default the static library for libimagequant is expected in the `lib/libimagequant` subfolder.
+By default the static library for libimagequant is expected in the "lib/libimagequant" subfolder.
 
-Building:
-1. mkdir build && cd build
+**Building:**
+1. `mkdir build && cd build`
 2. Create Makefile:
     - Unix/macOS: `cmake .. -DCMAKE_BUILD_TYPE=Release`
     - Windows: `cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release`
 3. Build executable:
     - Unix/macOS: `make`
-    - Windows: `mingw32-make`
+    - Windows (MinGW): `mingw32-make`
 
 ## License
 

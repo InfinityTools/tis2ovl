@@ -1,9 +1,9 @@
+#include <limits.h>
+#include <string.h>
 #include "compat.h"
 #include "colors.h"
 #include "functions.h"
 #include "libimagequant.h"
-#include <limits.h>
-#include <string.h>
 
 // Definition of a colormap entry
 typedef struct {

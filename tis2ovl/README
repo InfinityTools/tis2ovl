@@ -71,7 +71,7 @@ Building:
 2. Unix/macOS: cmake .. -DCMAKE_BUILD_TYPE=Release
    Windows: cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release
 3. Unix/macOS: make
-   Windows: mingw32-make
+   Windows (MinGW): mingw32-make
 
 
 License

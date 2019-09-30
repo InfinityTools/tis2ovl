@@ -6,7 +6,6 @@
 #include "arrays.h"
 #include "functions.h"
 #include "colors.h"
-//#include "quant.h"
 
 #define TILE_SIZE 5120
 #define TILE_DIM 64
