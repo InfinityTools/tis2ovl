@@ -1,7 +1,7 @@
 tis2ovl - A tileset overlay converter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    1.0rc1
+Version:    1.0
 Author:     Argent77
 Project:    https://github.com/InfinityTools/tis2ovl
 Download:   https://github.com/InfinityTools/tis2ovl/releases/latest
@@ -83,3 +83,6 @@ more information.
 
 Changelog
 ~~~~~~~~~
+
+1.0
+- Initial release
