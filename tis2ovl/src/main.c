@@ -78,11 +78,9 @@ int main(int argc, char *argv[])
         }
     }
     if (arrayGetSize(&searchList) == 0)
-        arrayAddItem(&searchList, ".");
+        arrayAddItem(&searchList, "");
     if (param_mode == MODE_NONE)
         param_mode = MODE_AUTO;
-    if (outputDir && !*outputDir)
-        outputDir = ".";
 
     // fetching remaining arguments
     for (int i = optind; i < argc; ++i) {
@@ -108,14 +106,16 @@ int main(int argc, char *argv[])
     printMsg(OUTPUT_MSG, "  Quiet mode: %s\n", param_quiet ? "enabled" : "disabled");
     size_t num = arrayGetSize(&searchList);
     if (num > 1) {
-        for (size_t i = 0, imax = arrayGetSize(&searchList); i < imax; ++i)
-            printMsg(OUTPUT_MSG, "  TIS search path %d: %s\n", i+1, (char*)arrayGetItem(&searchList, i));
-    } else if (num == 1) {
-        printMsg(OUTPUT_MSG, "  TIS search path: %s\n", (char*)arrayGetItem(&searchList, 0));
+        for (size_t i = 0, imax = arrayGetSize(&searchList); i < imax; ++i) {
+            char *path = arrayGetItem(&searchList, i);
+            printMsg(OUTPUT_MSG, "  TIS search path %d: %s\n", i+1, (path && *path) ? path : "(current directory)");
+        }
     } else {
-        printMsg(OUTPUT_MSG, "  TIS search path: current directory\n");
+        char *path = arrayGetItem(&searchList, 0);
+        printMsg(OUTPUT_MSG, "  TIS search path: %s\n", (path && *path) ? path : "(current directory)");
     }
-    printMsg(OUTPUT_MSG, "  Output directory: %s\n", outputDir ?  outputDir : "(Update input files)");
+    if (outputDir) printMsg(OUTPUT_MSG, "  Output directory: %s\n", *outputDir ?  outputDir : "(current directory)");
+        else printMsg(OUTPUT_MSG, "  Output directory: (update input files)\n");
     printMsg(OUTPUT_MSG, "  Found %d input WED file(s)\n", arrayGetSize(&wedList));
     printMsg(OUTPUT_MSG, "\n");
 

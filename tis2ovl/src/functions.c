@@ -105,10 +105,10 @@ bool fileExists(const char *fileName) {
 
 bool directoryExists(const char *pathName) {
     bool retVal = false;
-    if (pathName && *pathName) {
-        DIR *dp = opendir(pathName);
+    if (pathName) {
+        DIR *dp = opendir(*pathName ? pathName : ".");
         if (dp) {
-                retVal = true;
+            retVal = true;
             closedir(dp);
         }
     }
@@ -158,12 +158,8 @@ bool isFileIdentical(const char *fileName1, const char *fileName2) {
 char* normalizeDir(char *str) {
     if (str) {
         for (int i = strlen(str) - 1; i >= 0; --i)
-            if (str[i] == '/' || str[i] == '\\')
-                str[i] = '\0';
-        if (!*str) {
-            str[0] = '.';
-            str[1] = '\0';
-        }
+            if (str[i] == '/' || str[i] == '\\') str[i] = '\0';
+                else break;
     }
     return str;
 }

@@ -86,7 +86,8 @@ int convert(const char *wedFile, array_t *searchPath, const char *outputDir) {
     if (!evalOp(findTISFile(searchPath, tisName, tisFile), "Error: Could not find TIS file: %s\n", tisName)) return false;
     if (outputDir) {
         char tisFileOut[FILENAME_MAX] = {0};
-        sprintf(tisFileOut, "%s/%s", outputDir, tisName);
+        if (*outputDir) sprintf(tisFileOut, "%s/%s", outputDir, tisName);
+            else sprintf(tisFileOut, "%s", tisName);
         if (!isFileIdentical(tisFile, tisFileOut)) {
             if (!evalOp(copyFile(tisFile, tisFileOut, true), "Error: Could not create output TIS file: %s\n", tisFileOut)) return false;
         }
@@ -376,7 +377,9 @@ bool findTISFile(array_t *searchPath, const char *tisName, char *tisFile) {
         if (searchPath && arrayGetSize(searchPath)) {
             char path[FILENAME_MAX];
             for (size_t i = 0; i < arrayGetSize(searchPath); ++i) {
-                sprintf(path, "%s/%s", (char*)arrayGetItem(searchPath, i), tisName);
+                char *dir = arrayGetItem(searchPath, i);
+                if (dir && *dir) sprintf(path, "%s/%s", dir, tisName);
+                    else sprintf(path, "%s", tisName);
                 if (fileExists(path)) {
                     strcpy(tisFile, path);
                     return true;
