@@ -733,7 +733,7 @@ BEGIN
         arg_1       = EVAL ~%arg_to_ee%~
         arg_2       = EVAL ~%arg_to_classic%~
         arg_3       = EVAL ~%arg_search%~
-        arg_4       = EVAL ~%output_path%~
+        arg_4       = EVAL ~%arg_out%~
         arg_5       = EVAL ~%input_file%~
       RET
         result
